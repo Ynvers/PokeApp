@@ -24,6 +24,7 @@ if uploaded_file is not None or captured_image is not None:
     
     opencv_image = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
     opencv_image_resized = np.expand_dims(cv2.resize(opencv_image,(200,200)), axis=0)
+    
     res = model.predict(opencv_image_resized)
     predicted_class = np.argmax(res) 
     if predicted_class == 1:
